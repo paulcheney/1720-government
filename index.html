@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presidents | U.S. Government People</title>
+    
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- OPEN GRAPH DATA -->
+    <meta property="og:title" content="Presidents | U.S. Government People">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://paulcheney.github.io/1720-government/images/opengraph.jpg">
+    <meta property="og:logo" content="https://paulcheney.github.io/1720-government/images/logo.svg" />
+    <meta property="og:url" content="https://paulcheney.github.io/1720-government">
+    <meta property="og:description" content="A listing of all the presidents of the United States since the beginning. You can sort them by party">
+    <meta property="og:site_name" content="U.S. Government People">
+
+    <!-- FAV ICON LINKS -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Schedule" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- SCRIPTS -->
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/dark.js" defer></script>
+    <script src="scripts/prescards.js" type="module" defer></script>
+
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" alt="Government People" width="1" height="1" loading="lazy">
+        <span>U.S. Government People</span>
+        <button id="hamburger" class="hamburger" aria-label="navigation links"></button>
+        <img src="images/dark.svg" id="dark" aria-label="dark mode button" width="1" height="1"></button>
+    </header>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Justices</a></li>
+            <li class="active"><a href="index.html">Presidents</a></li>
+            <li><a href="#">Congress</a></li>
+            <li><a href="#">Senate</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+            <h1>Presidents</h1>
+            <div class="submenu">
+                <button id="all">All</button>
+                <button id="rep">Republican</button>
+                <button id="dem">Democratic</button>
+                <button id="dr">Democratic-Republican</button>
+                <button id="whi">Whig</button>
+                <button id="non">None</button>
+            </div>
+        <div id="showpresidents" class="presidents"></div>
+       
+
+
+
+
+
+
+    </main>
+    <footer>
+        <section class="social">
+            
+            <a href="https://github.com/paulcheney" target="_blank"><img src="images/icon-github.svg" alt="GitHub Icon"></a>
+            <a href="https://www.linkedin.com/in/pcheney" target="_blank"><img src="images/icon-linkedin.svg" alt="Linked In Icon"></a>
+            <a href="https://www.youtube.com/@PaulCheney66" target="_blank"><img src="images/icon-youtube.svg" alt="Youtube Icon"></a>
+            <a href="https://www.facebook.com/paul.cheney.1422" target="_blank"><img src="images/icon-facebook.svg" alt="Facebook Icon"></a>
+        </section>
+        <p>&copy; <span id="currentyear"></span> • Paul Cheney • DWDD1720</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

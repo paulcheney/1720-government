@@ -1,0 +1,237 @@
+/* -------------- COLOR SCHEME --------------- */
+:root {
+  --color-party1: hsl(0, 95%, 50%);
+  --color-party2: hsl(52 , 95%,  50%);
+  --color-party3: hsl(104, 95%,  50%);
+  --color-party4: hsl(156 , 95%,  50%);
+  --color-party5: hsl(230 , 95%,  50%);
+  /* Add a grey scale Colors */
+  --color-mygrey-0: lab(100% 0 0);
+  --color-mygrey-5: lab(95% 0 0);
+  --color-mygrey-10: lab(90% 0 0);
+  --color-mygrey-20: lab(80% 0 0);
+  --color-mygrey-30: lab(70% 0 0);
+  --color-mygrey-40: lab(60% 0 0);
+  --color-mygrey-50: lab(50% 0 0);
+  --color-mygrey-60: lab(40% 0 0);
+  --color-mygrey-70: lab(30% 0 0);
+  --color-mygrey-80: lab(20% 0 0);
+  --color-mygrey-90: lab(10% 0 0);
+  --color-mygrey-100: lab(0% 0 0);
+}
+
+* {
+  font-family: "Sour Gummy", sans-serif;
+  box-sizing: border-box;
+}
+
+/************************** HEADER **************************/
+header {
+  padding: 10px 0 10px 10px;
+  display: grid;
+  grid-template-columns: 25px auto 36px 36px;
+  column-gap: 8px;
+  align-items: end;
+  background-color: var(--color-mygrey-90);
+}
+
+header img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+header span {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--color-mygrey-5)
+}
+
+
+/************************** HAMBURGER NAVIGATION **************************/
+.hamburger {
+  background: none;
+  border: none;
+  color: var(--color-mygrey-5);
+  cursor: pointer;
+  font-family: Verdana;
+  font-size: 2rem;
+}
+
+.hamburger::before {
+  content: "\2630";
+}
+
+.hamburger.show::before {
+  content: "\00D7";
+}
+
+/************************** DARK MODE ICON **************************/
+#dark {
+  display: block;
+  width: 22px;
+  height:22px;
+  margin: 7px;
+}
+
+
+/************************** NAVIGATION **************************/
+nav {
+  display: none;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-mygrey-70);
+  text-decoration: none;
+  padding: 0.6rem 10px;
+  border-bottom: 1px solid var(--color-mygrey-10);
+}
+
+nav a:hover {
+  background-color: var(--color-mygrey-10);
+}
+
+nav li.active a {
+  text-decoration: underline;
+  color: var(--color-mygrey-90);
+}
+
+nav.show {
+  display: block;
+}
+
+/************************** SUB NAVIGATION **************************/
+.submenu {
+  display: flex;
+  flex-direction: column;
+}
+.submenu button {
+  border: 1px solid var(--color-mygrey-50);
+  padding: .7rem;
+  font-size: .9rem;
+  cursor: pointer;
+  background-color: var(--color-mygrey-5);
+    color: var(--color-mygrey-90);
+  &:hover {
+    background-color: var(--color-mygrey-90);
+    color: var(--color-mygrey-5)
+  }
+}
+.submenu button.active {
+  background-color: var(--color-mygrey-30);
+}
+
+
+
+/************************** MAIN AREA **************************/
+h1 {
+  color: var(--color-mygrey-90);
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 1rem 10px;
+}
+main.dark {
+  background-color: var(--color-mygrey-90);
+  h1 {
+    color:var(--color-mygrey-5);
+  }
+}
+
+
+
+/************************** PRESIDENT CARDS **************************/
+.presidents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px 10px;
+  margin: 10px;
+}
+.party1 {background-color: var(--color-party1);}
+.party2 {background-color: var(--color-party2);}
+.party3 {background-color: var(--color-party3);}
+.party4 {background-color: var(--color-party4);}
+.party5 {background-color: var(--color-party5);}
+
+.presidents section {
+  margin: 1rem 2%;
+  border: 1px solid var(--color-mygrey-10);
+  text-align: center;
+  background-color: var(--color-mygrey-5);
+  box-shadow: 0px 0px 10px var(--color-mygrey-30);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.presidents h2 {
+  margin: 0;
+  padding: 1rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.presidents img {
+  width: 100%;
+  height: auto;
+  display: block;;
+}
+
+.presidents p {
+  color: var(--color-mygrey-70);
+  padding: 1rem 0;
+}
+
+
+
+
+
+/************************** SOCIAL MEDIA **************************/
+.social {
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.social a {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: var(--color-mygrey-10);
+}
+
+.social img {
+  width: 22px;
+  height: 22px;
+}
+
+.social a:hover {
+  background-color: var(--color-mygrey-0);
+}
+
+/************************** FOOTER **************************/
+footer {
+  background-color: var(--color-mygrey-70);
+  color: var(--color-mygrey-5);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-mygrey-30);
+}
