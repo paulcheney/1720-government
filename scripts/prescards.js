@@ -64,7 +64,8 @@ function displayPresidents(filteredlist, buttonName ) {
   // add the active class to the current button
   document.querySelector(`#${buttonName}`).classList.add('active');
 
-// loop through the filtered list  
+// loop through the filtered list
+
 for (let x = 0; x < filteredlist.length; x++) {
 
 
