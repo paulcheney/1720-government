@@ -123,7 +123,7 @@ nav.show {
   flex-direction: column;
 }
 .submenu button {
-  border: 1px solid var(--color-mygrey-50);
+  border: 1px solid var(--color-mygrey-20);
   padding: .7rem;
   font-size: .9rem;
   cursor: pointer;
