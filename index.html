@@ -35,7 +35,6 @@
     <!-- SCRIPTS -->
     <script src="scripts/year.js" defer></script>
     <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/dark.js" defer></script>
     <script src="scripts/prescards.js" type="module" defer></script>
 
 </head>
@@ -44,7 +43,6 @@
         <img src="images/logo.svg" alt="Government People" width="1" height="1" loading="lazy">
         <span>U.S. Government People</span>
         <button id="hamburger" class="hamburger" aria-label="navigation links"></button>
-        <img src="images/dark.svg" id="dark" aria-label="dark mode button" width="1" height="1"></button>
     </header>
     <nav id="navbar">
         <ul>
@@ -58,12 +56,12 @@
     <main>
             <h1>Presidents</h1>
             <div class="submenu">
-                <button id="all">All</button>
-                <button id="rep">Republican</button>
-                <button id="dem">Democratic</button>
-                <button id="dr">Democratic-Republican</button>
-                <button id="whi">Whig</button>
-                <button id="non">None</button>
+                <button id="btn-all" class="current">All</button>
+                <button id="btn-rep">Republican</button>
+                <button id="btn-dem">Democratic</button>
+                <button id="btn-dr">Democratic-Republican</button>
+                <button id="btn-whi">Whig</button>
+                <button id="btn-non">None</button>
             </div>
         <div id="showpresidents" class="presidents"></div>
        

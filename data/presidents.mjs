@@ -3,14 +3,14 @@ export const presidents = [
     name: "George Washington",
     took_office: "1789-04-30",
     left_office: "1797-03-04",
-    party: "No Party",
+    party: "None",
     photo: "01-washington.webp",
   },
   {
     name: "John Adams",
     took_office: "1797-03-04",
     left_office: "1801-03-04",
-    party: "No Party",
+    party: "None",
     photo: "02-adams.webp",
   },
   {

@@ -21,8 +21,6 @@
 
 /************************** BORDER BOX **************************/
 * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -37,7 +35,7 @@ body {
 header {
   padding: 10px 0 10px 10px;
   display: grid;
-  grid-template-columns: 25px auto 36px 36px;
+  grid-template-columns: 25px auto 36px;
   column-gap: 8px;
   align-items: end;
   background-color: var(--color-mygrey-90);
@@ -74,13 +72,6 @@ header span {
   content: "\00D7";
 }
 
-/************************** DARK MODE ICON **************************/
-#dark {
-  display: block;
-  width: 22px;
-  height:22px;
-  margin: 7px;
-}
 
 
 /************************** NAVIGATION **************************/
@@ -134,8 +125,8 @@ nav.show {
     color: var(--color-mygrey-05)
   }
 }
-.submenu button.active {
-  background-color: var(--color-mygrey-30);
+.submenu button.current {
+  background-color: var(--color-mygrey-40);
 }
 
 
@@ -164,11 +155,11 @@ main.dark {
   gap: 50px 10px;
   margin: 10px;
 }
-.party1 {background-color: var(--color-party1);}
-.party2 {background-color: var(--color-party2);}
-.party3 {background-color: var(--color-party3);}
-.party4 {background-color: var(--color-party4);}
-.party5 {background-color: var(--color-party5);}
+.republican h2 {background-color: var(--color-party1);}
+.democrat h2 {background-color: var(--color-party2);}
+.democrat-republican h2 {background-color: var(--color-party3);}
+.whig h2 {background-color: var(--color-party4);}
+.none h2 {background-color: var(--color-party5);}
 
 .presidents section {
   margin: 1rem 2%;

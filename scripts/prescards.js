@@ -1,122 +1,126 @@
 // grab the presidents data from the file
-import {presidents} from '../data/presidents.mjs';
-console.log(presidents);
+import { presidents } from "../data/presidents.mjs";
+//console.log(presidents);
 
-//path to photos on the government website
-//const pathStart = "//www.loc.gov/static/portals/free-to-use/public-domain/presidential-portraits/";
-const pathStart = "https://resources.dgmuvu.com/presidents/"
+//path to presidential photos
+const pathStart = "https://resources.dgmuvu.com/presidents/";
 
- //referrence to the id on our web page
+//reference to the id on our web page
 const showPresidents = document.querySelector("#showpresidents");
 
+
+
+
 //========================== FILTER THE ENTIRE LIST WHEN A BUTTON IS CLICKED ======================
-// show ALL button
-document.querySelector('#all').addEventListener('click', () => {
-  displayPresidents(presidents, "all")
-}); 
 
-// show rep button
-document.querySelector('#rep').addEventListener('click', () => {
-  const filteredlist = presidents.filter((presidents) => presidents.party === 'Republican');
-  displayPresidents(filteredlist, "rep")
-}); 
-
-// show dem button
-document.querySelector('#dem').addEventListener('click', () => {
-  const filteredlist = presidents.filter((presidents) => presidents.party === 'Democrat');
-  displayPresidents(filteredlist, "dem")
-}); 
-
-// show dr button
-document.querySelector('#dr').addEventListener('click', () => {
-  const filteredlist = presidents.filter((presidents) => presidents.party === 'Democrat-Republican');
-  displayPresidents(filteredlist, "dr")
+// respond to btn-all being clicked
+document.querySelector("#btn-all").addEventListener("click", (el) => {
+  displayPresidents(presidents);
+  //console.log(el.target.id);
+  updateSubNav(el.target.id);
 });
 
-// show whi button
-document.querySelector('#whi').addEventListener('click', () => {
-  const filteredlist = presidents.filter((presidents) => presidents.party === 'Whig');
-  displayPresidents(filteredlist, "whi")
+// respond to btn-rep being clicked
+document.querySelector("#btn-rep").addEventListener("click", (el) => {
+  const filteredlist = presidents.filter((presidents) => presidents.party === "Republican");
+  displayPresidents(filteredlist);
+  updateSubNav(el.target.id);
 });
 
-// show non button
-document.querySelector('#non').addEventListener('click', () => {
-  const filteredlist = presidents.filter((presidents) => presidents.party === 'No Party');
-  displayPresidents(filteredlist, "non")
+// respond to btn-dem being clicked
+document.querySelector("#btn-dem").addEventListener("click", (el) => {
+  const filteredlist = presidents.filter((presidents) => presidents.party === "Democrat");
+  displayPresidents(filteredlist);
+  updateSubNav(el.target.id);
 });
+
+// respond to btn-dr being clicked
+document.querySelector("#btn-dr").addEventListener("click", (el) => {
+  const filteredlist = presidents.filter((presidents) => presidents.party === "Democrat-Republican");
+  displayPresidents(filteredlist);
+  updateSubNav(el.target.id);
+});
+
+// respond to btn-whi being clicked
+document.querySelector("#btn-whi").addEventListener("click", (el) => {
+  const filteredlist = presidents.filter(
+    (presidents) => presidents.party === "Whig"
+  );
+  displayPresidents(filteredlist);
+  updateSubNav(el.target.id);
+});
+
+// respond to btn-non being clicked
+document.querySelector("#btn-non").addEventListener("click", (el) => {
+  const filteredlist = presidents.filter((presidents) => presidents.party === "None");
+  displayPresidents(filteredlist);
+  updateSubNav(el.target.id);
+});
+
+
+
+
+
+// ---------------- UPDATE THE SUB NAVIGATION ------------------------
+function updateSubNav(buttonName) {
+  //remove the active class from all buttons
+  const allButtons = document.querySelectorAll(".submenu button")
+  allButtons.forEach((btn) => (btn.className = ""));
+
+  // add the active class to the current button
+  document.querySelector(`#${buttonName}`).classList.add("current");
+}
+
+
 
 
 
 
 
 // ---------------- FUNCTION TO SHOW PRESIDENTS ------------------------
-function displayPresidents(filteredlist, buttonName ) {
-  console.log(filteredlist, buttonName)
-  
+function displayPresidents(filteredlist, buttonName) {
+  console.log(filteredlist, buttonName);
+
   //clear the page
-  showPresidents.innerHTML = '';
+  showPresidents.innerHTML = "";
 
-  //remove the active class from all buttons
-  document.querySelectorAll('.submenu button').forEach(btn => {
-    btn.className = '';
+  // loop through the filtered list
+  filteredlist.forEach((p) => {
+    console.log(p.name);
+    //create a heading for the name
+    let presName = document.createElement("h2");
+    presName.innerText = p.name;
+
+    // create an image element with attributes
+    let presImage = document.createElement("img");
+    presImage.src=pathStart + p.photo
+    presImage.alt = p.name
+    presImage.loading = "lazy"
+    presImage.width = 250
+    presImage.height = 300
+
+    // create a caption
+    let presInfo = document.createElement("p");
+    presInfo.innerHTML = `Served ${p.took_office} to ${p.left_office}<br>Party: ${p.party}`;
+
+
+
+
+    // create a section for each card
+    let presCard = document.createElement("section");
+    presCard.className=p.party.toLowerCase()
+
+    // build the section with child elements
+    presCard.appendChild(presName);
+    presCard.appendChild(presImage);
+    presCard.appendChild(presInfo);
+
+    //add a new card to a page
+    showPresidents.appendChild(presCard);
   });
-
-  // add the active class to the current button
-  document.querySelector(`#${buttonName}`).classList.add('active');
-
-// loop through the filtered list
-
-for (let x = 0; x < filteredlist.length; x++) {
-
-
-  //create a heading for the name
-  let presName = document.createElement("h2")
-  presName.innerText = filteredlist[x].name
-  // assign a class based on the party
-  switch (filteredlist[x].party) {
-    case "Democrat":
-      presName.className="party1"
-    break;
-    case "Republican":
-      presName.className="party2"
-    break;
-    case "Whig":
-      presName.className="party3"
-    break;
-    case "Democrat-Republican":
-      presName.className="party4"
-    break;
-    default:
-      presName.className="party5"
-    break;
-  }
-
-  // create an image element with attributes
-  let presImage = document.createElement("img");
-  let pathEnd = filteredlist[x].photo;
-  presImage.setAttribute("src", pathStart+pathEnd);
-  presImage.setAttribute("alt", filteredlist[x].name);
-
-  // create a caption
-  let presInfo = document.createElement("p");
-  presInfo.innerHTML = `Served ${filteredlist[x].took_office} to ${filteredlist[x].left_office}<br>Party: ${filteredlist[x].party}`;
-
-	// create an empty figure
-  let presCard = document.createElement("section");
-
-  // build the figure with child elements
-  presCard.appendChild(presName);
-  presCard.appendChild(presImage);
-  presCard.appendChild(presInfo);
-
-  //add a new card to a page
-  showPresidents.appendChild(presCard);
-  
-} // end for loop
+} // end of display presidents
 
 
 
 
-} // end of dsplay presidents
-
-displayPresidents(presidents, "all")
+displayPresidents(presidents, "btn-all");
